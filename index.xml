@@ -1,1 +1,120 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jayden's Blog</title><link>https://yangjinda.github.io/</link><description>Recent content on Jayden's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>All rights reserved - 2019</copyright><lastBuildDate>Fri, 01 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://yangjinda.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>使用github的免费cdn图床</title><link>https://yangjinda.github.io/post/2020-05-01-how_to_use_jsdelivr_for_img_cdn/</link><pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate><guid>https://yangjinda.github.io/post/2020-05-01-how_to_use_jsdelivr_for_img_cdn/</guid><description>一般写博客或是自建站时需要将图片资源放到第三方处，来节省服务器的带宽或提高访问速度。当然收费的第三方效果是最好的，但是为了节省成本还是有很多免费的方案可以使用，比如微博的图床，但其本质上是间接使用，还</description></item><item><title>python中动态创建类</title><link>https://yangjinda.github.io/post/2020-04-29-dynamic_create_class_in_python/</link><pubDate>Wed, 29 Apr 2020 00:00:00 +0000</pubDate><guid>https://yangjinda.github.io/post/2020-04-29-dynamic_create_class_in_python/</guid><description>常见类的创建方法 # classic style class A: pass # new style class A(object): pass 但总有些情况我们不想或是不能使用这种定义方式。希望可以用函数的方式动态的创建一个类或是继承一个类，来实现我们的需求。 python作为一种动态语言是这次这种方式的</description></item><item><title>二分搜索详解</title><link>https://yangjinda.github.io/post/2020-04-23-binary_search/</link><pubDate>Thu, 23 Apr 2020 00:00:00 +0000</pubDate><guid>https://yangjinda.github.io/post/2020-04-23-binary_search/</guid><description>代码模版 def binary_search(nums): l, r = 0, len(nums) while l &amp;lt; r: mid = l + (r - l) // 2 if 找到: l = mid + 1 elif 需要向右搜索: l = mid + 1 elif 需要向左搜索: r = mid if l == len(nums): return return nums[l]</description></item><item><title>Domain/Entity/Model区别</title><link>https://yangjinda.github.io/post/2019-09-11-domain_entity_model/</link><pubDate>Wed, 11 Sep 2019 00:00:00 +0000</pubDate><guid>https://yangjinda.github.io/post/2019-09-11-domain_entity_model/</guid><description>看各种源码时，会发现各项目在组织代码时，对于数据相关的目录的命名方式都不太一样，例如使用Domain/Entity/Model等作为目录名称的。查了下资料，总结记录下。 Entity 一般情况下此结构与数据库结构一</description></item><item><title>NEW BEGINNING</title><link>https://yangjinda.github.io/post/2019-09-11-first-post/</link><pubDate>Wed, 11 Sep 2019 00:00:00 +0000</pubDate><guid>https://yangjinda.github.io/post/2019-09-11-first-post/</guid><description>NEW BEGINNING</description></item><item><title>About me</title><link>https://yangjinda.github.io/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://yangjinda.github.io/about/</guid><description>Info Jayden Yang (杨金达) Beijing, China Contact Email: yangjinda@gmail.com</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jayden's Blog</title><link>https://yangjinda.github.io/</link><description>Recent content on Jayden's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 01 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://yangjinda.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>使用github的免费cdn图床</title><link>https://yangjinda.github.io/post/2020-05-01-how_to_use_jsdelivr_for_img_cdn/</link><pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate><guid>https://yangjinda.github.io/post/2020-05-01-how_to_use_jsdelivr_for_img_cdn/</guid><description>&lt;p>&lt;!-- raw HTML omitted -->&lt;/p>
+&lt;p>一般写博客或是自建站时需要将图片资源放到第三方处，来节省服务器的带宽或提高访问速度。当然收费的第三方效果是最好的，但是为了节省成本还是有很多免费的方案可以使用，比如微博的图床，但其本质上是间接使用，还是略麻烦。&lt;br>
+在程序员熟知的github上可以提供图片文件的git管理和读取，可以作为文件链接添加到自己需要的页面中，好处是免费，没有空间限制，并且天然支持git管理；但是缺点就是访问速度堪忧。&lt;br>
+为了解决访问速度的问题，有个办法就是使用jsdelivr这个cdn进行加速。其实方法特别简单：将托管到github上的文件链接修改下，将github.com &amp;ndash;&amp;gt; 替换成cdn.jsdelivr.net/gh，完成～。&lt;/p>
+&lt;p>完整步骤如下：&lt;/p>
+&lt;ol>
+&lt;li>在github上创建一个repo&lt;/li>
+&lt;li>将图片放到此repo中&lt;/li>
+&lt;li>查找对应的图片文件的地址，例如：https://github.com/{user}/{repo}/{file_path}&lt;/li>
+&lt;li>将需要使用图片链接的地址改成: &lt;a href="https://cdn.jsdelivr.net/gh/%7Buser%7D/%7Brepo%7D/%7Bfile_path%7D">https://cdn.jsdelivr.net/gh/{user}/{repo}/{file_path}&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;p>注意：file_path要使用页面上的copy_path按钮生成，不要用使用浏览器中的文件地址&lt;/p></description></item><item><title>python中动态创建类</title><link>https://yangjinda.github.io/post/2020-04-29-dynamic_create_class_in_python/</link><pubDate>Wed, 29 Apr 2020 00:00:00 +0000</pubDate><guid>https://yangjinda.github.io/post/2020-04-29-dynamic_create_class_in_python/</guid><description>&lt;p>&lt;!-- raw HTML omitted -->&lt;/p>
+&lt;h4 id="常见类的创建方法">常见类的创建方法&lt;/h4>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#75715e"># classic style&lt;/span>
+&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">A&lt;/span>:
+&lt;span style="color:#66d9ef">pass&lt;/span>
+&lt;span style="color:#75715e"># new style&lt;/span>
+&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">A&lt;/span>(object):
+&lt;span style="color:#66d9ef">pass&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>但总有些情况我们不想或是不能使用这种定义方式。希望可以用函数的方式动态的创建一个类或是继承一个类，来实现我们的需求。
+python作为一种动态语言是这次这种方式的，当然这种hack方式并不推荐在较大工程中使用，会影响代码可读性和pylint等代码检查工具。
+但是如果是一些小的工具函数中，使用这个方式可以很好的衔接函数式编码风格和面向对象编码风格，并且会使代码更精炼内聚性更高。
+同时通过这种方式，可以更深入的研究的python的底层机制。&lt;/p>
+&lt;h4 id="动态创建类的方法">动态创建类的方法&lt;/h4>
+&lt;p>其实python中提供了一个函数可以动态创建一个类，就是type函数，此函数比较常规的使用方式是type(a)这种，用来查a的类型。但其实此函数通过传不同的参数也可以实现类的定义。
+type函数实现：&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">type&lt;/span>(object):
+&lt;span style="color:#e6db74">&amp;#34;&amp;#34;&amp;#34;
+&lt;/span>&lt;span style="color:#e6db74"> type(object) -&amp;gt; the object&amp;#39;s type
+&lt;/span>&lt;span style="color:#e6db74"> type(name, bases, dict) -&amp;gt; a new type
+&lt;/span>&lt;span style="color:#e6db74"> &amp;#34;&amp;#34;&amp;#34;&lt;/span>
+&lt;span style="color:#66d9ef">def&lt;/span> __init__(cls, what, bases&lt;span style="color:#f92672">=&lt;/span>None, dict&lt;span style="color:#f92672">=&lt;/span>None): &lt;span style="color:#75715e"># known special case of type.__init__&lt;/span>
+&lt;span style="color:#e6db74">&amp;#34;&amp;#34;&amp;#34;
+&lt;/span>&lt;span style="color:#e6db74"> type(object) -&amp;gt; the object&amp;#39;s type
+&lt;/span>&lt;span style="color:#e6db74"> type(name, bases, dict) -&amp;gt; a new type
+&lt;/span>&lt;span style="color:#e6db74"> # (copied from class doc)
+&lt;/span>&lt;span style="color:#e6db74"> &amp;#34;&amp;#34;&amp;#34;&lt;/span>
+&lt;span style="color:#66d9ef">pass&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>python中动态创建一个类如下：&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">A&lt;/span>(object):
+&lt;span style="color:#66d9ef">pass&lt;/span>
+&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">B&lt;/span>:
+&lt;span style="color:#66d9ef">pass&lt;/span>
+AB &lt;span style="color:#f92672">=&lt;/span> type(&lt;span style="color:#e6db74">&amp;#39;AB&amp;#39;&lt;/span>, (A, B), {&lt;span style="color:#e6db74">&amp;#39;ab&amp;#39;&lt;/span>: None})
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>type中的参数为：&lt;/p>
+&lt;ol>
+&lt;li>第一个参数为要创建的类名&lt;/li>
+&lt;li>第二个参数为继承需要继承的父类，也可以为空&lt;/li>
+&lt;li>第三个参数类中的成员定义，也可以为空字典&lt;/li>
+&lt;/ol>
+&lt;p>type的返回值为一个type，也就是一个class（python中new style的class都是继承的type这个类型）。此种方式与我们常用的声明式定义效果相同，其实python解释器中，也是通过调用type函数来定义一个类。
+注意:&lt;/p>
+&lt;ul>
+&lt;li>此处有个一个需要注意的点，继承多个父类的时候，只会执行tuple中第一个父类的__init__函数，这个和python的new-style class的继承初始有关，可以参看新式类的初始化相关。&lt;/li>
+&lt;li>还有个点是type函数不支持keyword arguments形式的函数赋值，原因是type为C-level API，所以不支持。&lt;/li>
+&lt;/ul>
+&lt;h4 id="特殊情况">特殊情况&lt;/h4>
+&lt;p>上述方式适用于绝大多数情况，但有一种情况特殊&amp;ndash;继承的父类都是老式类（classic style），不能使用上述方法。例如：&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">A&lt;/span>:
+&lt;span style="color:#66d9ef">pass&lt;/span>
+&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">B&lt;/span>:
+&lt;span style="color:#66d9ef">pass&lt;/span>
+AB &lt;span style="color:#f92672">=&lt;/span> type(&lt;span style="color:#e6db74">&amp;#39;AB&amp;#39;&lt;/span>, (A, B), {&lt;span style="color:#e6db74">&amp;#39;ab&amp;#39;&lt;/span>: None})
+&lt;span style="color:#f92672">---------------------------------------------------------------------------&lt;/span>
+&lt;span style="color:#a6e22e">TypeError&lt;/span> Traceback (most recent call last)
+&lt;span style="color:#f92672">&amp;lt;&lt;/span>ipython&lt;span style="color:#f92672">-&lt;/span>input&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">14&lt;/span>&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">42287432155&lt;/span>c&lt;span style="color:#f92672">&amp;gt;&lt;/span> &lt;span style="color:#f92672">in&lt;/span> &lt;span style="color:#f92672">&amp;lt;&lt;/span>module&lt;span style="color:#f92672">&amp;gt;&lt;/span>()
+&lt;span style="color:#ae81ff">3&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">B&lt;/span>:
+&lt;span style="color:#ae81ff">4&lt;/span> &lt;span style="color:#66d9ef">pass&lt;/span>
+&lt;span style="color:#f92672">----&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">5&lt;/span> AB &lt;span style="color:#f92672">=&lt;/span> type(&lt;span style="color:#e6db74">&amp;#39;AB&amp;#39;&lt;/span>, (A, B), {&lt;span style="color:#e6db74">&amp;#39;ab&amp;#39;&lt;/span>: None})
+&lt;span style="color:#a6e22e">TypeError&lt;/span>: a new&lt;span style="color:#f92672">-&lt;/span>style &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">can&lt;/span>&lt;span style="color:#e6db74">&amp;#39;t have only classic bases&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>错误原因是type会生成一个新式类，父类中必须有一个是新式类，否则会报TypeError错误。解决办法是通过types.ClassType来生成一个老式类（classic style）：&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#f92672">import&lt;/span> types
+&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">A&lt;/span>:
+&lt;span style="color:#66d9ef">pass&lt;/span>
+&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">B&lt;/span>:
+&lt;span style="color:#66d9ef">pass&lt;/span>
+AB &lt;span style="color:#f92672">=&lt;/span> types&lt;span style="color:#f92672">.&lt;/span>ClassType(&lt;span style="color:#e6db74">&amp;#39;AB&amp;#39;&lt;/span>, (A, B), {&lt;span style="color:#e6db74">&amp;#39;ab&amp;#39;&lt;/span>: None})
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>看下types.ClassType的实现：&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#75715e"># 通过type取一个老式类的类型，来生成新的类。&lt;/span>
+&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">_C&lt;/span>:
+&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">_m&lt;/span>(self): &lt;span style="color:#66d9ef">pass&lt;/span>
+ClassType &lt;span style="color:#f92672">=&lt;/span> type(_C)
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>从下面可以看出新式类和老式类的不同。&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">A&lt;/span>(object):
+&lt;span style="color:#66d9ef">pass&lt;/span>
+&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">B&lt;/span>:
+&lt;span style="color:#66d9ef">pass&lt;/span>
+type(A) &lt;span style="color:#f92672">--&amp;gt;&lt;/span> type
+type(B) &lt;span style="color:#f92672">--&amp;gt;&lt;/span> classobj
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="总结">总结：&lt;/h4>
+&lt;p>可以通过基础类型&amp;ndash;type和classobj来生成新的类。&lt;/p></description></item><item><title>二分搜索详解</title><link>https://yangjinda.github.io/post/2020-04-23-binary_search/</link><pubDate>Thu, 23 Apr 2020 00:00:00 +0000</pubDate><guid>https://yangjinda.github.io/post/2020-04-23-binary_search/</guid><description>&lt;p>代码模版&lt;/p>
+&lt;pre>&lt;code>def binary_search(nums):
+l, r = 0, len(nums)
+while l &amp;lt; r:
+mid = l + (r - l) // 2
+if 找到:
+l = mid + 1
+elif 需要向右搜索:
+l = mid + 1
+elif 需要向左搜索:
+r = mid
+if l == len(nums):
+return
+return nums[l]
+&lt;/code>&lt;/pre></description></item><item><title>Domain/Entity/Model区别</title><link>https://yangjinda.github.io/post/2019-09-11-domain_entity_model/</link><pubDate>Wed, 11 Sep 2019 00:00:00 +0000</pubDate><guid>https://yangjinda.github.io/post/2019-09-11-domain_entity_model/</guid><description>&lt;p>看各种源码时，会发现各项目在组织代码时，对于数据相关的目录的命名方式都不太一样，例如使用Domain/Entity/Model等作为目录名称的。查了下资料，总结记录下。&lt;/p>
+&lt;h3 id="entity">Entity&lt;/h3>
+&lt;p>一般情况下此结构与数据库结构一一对应，作为程序与数据库的映射桥梁。&lt;/p>
+&lt;h3 id="model">Model&lt;/h3>
+&lt;p>针对某一个业务需求，组合或是过滤一组数据。&lt;/p>
+&lt;h3 id="domain">Domain&lt;/h3>
+&lt;p>一般是一组数据组合，包含某一个大业务逻辑的所有数据集合。&lt;/p>
+&lt;p>通过定义可以看出，还是有趋向性的。开发中，特别是大项目时，还是需要根据实际情况来选择名字。个人觉得应该将entity的定义放到repository层，因为entity的定义是与数据库强相关的，当repository使用mysql或是mongo时数据格式是不同的，所有不应该作为通用数据使用。model和domain概念比较重合，都是对业务的数据抽象，主要区别是model更多用在传统的MVC结构中，domain更多的使用在微服务架构或是DDD原则设计的项目中。也可以按照domain比model范围更大的角度来理解。实际使用中，如果项目不是特别大，可以model或domain二选一。&lt;/p></description></item><item><title>About me</title><link>https://yangjinda.github.io/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://yangjinda.github.io/about/</guid><description>&lt;h3 id="info">Info&lt;/h3>
+&lt;ul>
+&lt;li>Jayden Yang (杨金达)&lt;/li>
+&lt;li>Beijing, China&lt;/li>
+&lt;/ul>
+&lt;h3 id="contact">Contact&lt;/h3>
+&lt;ul>
+&lt;li>Email: &lt;a href="mailto:yangjinda@gmail.com">yangjinda@gmail.com&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>
